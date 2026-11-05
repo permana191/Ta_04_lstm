@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="gloss-card">
+    <h3><i class="fas fa-tachometer-alt"></i> Kinerja & Evaluasi Model</h3>
+    
+    <div class="metric-boxes">
+        <div class="metric-box gloss-card-dark">
+            <h4>RMSE (Root Mean Squared Error)</h4>
+            <div class="score">0.0088</div>
+            <p style="font-size:12px; color:#94a3b8;">Rata-rata kesalahan tebakan model sangat kecil.</p>
+        </div>
+    </div>
+
+    <h4 style="margin-top: 30px;">Arsitektur Model LSTM</h4>
+    <table>
+        <tr><th>Layer (Tipe)</th><th>Output Shape</th><th>Parameter</th></tr>
+        <tr><td>lstm (LSTM)</td><td>(None, 60, 50)</td><td>10,400</td></tr>
+        <tr><td>dropout (Dropout)</td><td>(None, 60, 50)</td><td>0</td></tr>
+        <tr><td>lstm_1 (LSTM)</td><td>(None, 50)</td><td>20,200</td></tr>
+        <tr><td>dense (Dense)</td><td>(None, 25)</td><td>1,275</td></tr>
+        <tr><td>dense_1 (Dense)</td><td>(None, 1)</td><td>26</td></tr>
+    </table>
+</div>
+{% endblock %}

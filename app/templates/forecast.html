@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="gloss-card">
+    <h3><i class="fas fa-magic"></i> Simulasi Prediksi Masa Depan</h3>
+    <p>Masukkan jumlah hari ke depan untuk melihat peramalan pergerakan kurs mata uang menggunakan model LSTM yang telah dilatih.</p>
+    
+    <form method="POST" class="forecast-form">
+        <label for="days">Jumlah Hari Prediksi (Timesteps):</label>
+        <input type="number" id="days" name="days" class="gloss-input" min="1" max="100" value="7" required>
+        <button type="submit" class="gloss-btn"><i class="fas fa-cogs"></i> Jalankan Prediksi</button>
+    </form>
+
+    {% if result %}
+        {% if result.error %}
+            <!-- Muncul jika Model belum di-training -->
+            <div class="gloss-alert" style="margin-top: 20px; background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444;">
+                <h4 style="color: #f87171;"><i class="fas fa-exclamation-triangle"></i> Error:</h4>
+                <p>{{ result.error }}</p>
+            </div>
+        {% else %}
+            <!-- Muncul jika Prediksi Sukses -->
+            <div class="gloss-alert" style="margin-top: 20px;">
+                <h4><i class="fas fa-check-circle"></i> Hasil Prediksi:</h4>
+                <p>Berhasil memprediksi pergerakan nilai tukar EURO/USD untuk {{ result|length }} hari ke depan berdasarkan memori LSTM.</p>
+                
+                <table style="margin-top: 15px; width: 100%;">
+                    <tr>
+                        <th style="width: 15%;">Hari Ke-</th>
+                        <th style="width: 45%;">Estimasi Tanggal</th>
+                        <th style="width: 40%;">Prediksi Nilai Tukar (USD)</th>
+                    </tr>
+                    {% for row in result %}
+                    <tr>
+                        <td>{{ row.hari }}</td>
+                        <td>{{ row.tanggal }}</td>
+                        <td style="color: #38bdf8; font-weight: bold;">$ {{ row.nilai }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

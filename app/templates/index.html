@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-grid">
+    <div class="gloss-card full-width">
+        <h3><i class="fas fa-chart-area"></i> Visualisasi Data Latih & Uji (Actual vs Prediksi)</h3>
+        <p>Grafik di bawah ini membandingkan data nilai tukar mata uang Euro terhadap USD aktual dengan hasil prediksi model LSTM.</p>
+        <img src="{{ url_for('static', filename='images/prediction_plot.png') }}" alt="Prediksi Plot" onerror="this.src='https://via.placeholder.com/800x400/1e293b/38bdf8?text=Grafik+Prediksi+Belum+Tersedia'">
+    </div>
+</div>
+{% endblock %}

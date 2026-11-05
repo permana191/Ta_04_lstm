@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | LSTM Forex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar gloss-card-dark">
+        <h2><i class="fas fa-chart-line"></i> VISION CORE</h2>
+        <ul>
+            <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="{{ url_for('data') }}" class="{% if request.endpoint == 'data' %}active{% endif %}"><i class="fas fa-database"></i> Data Historis</a></li>
+            <li><a href="{{ url_for('forecast') }}" class="{% if request.endpoint == 'forecast' %}active{% endif %}"><i class="fas fa-forward"></i> Prediksi (Forecast)</a></li>
+            <li><a href="{{ url_for('evaluation') }}" class="{% if request.endpoint == 'evaluation' %}active{% endif %}"><i class="fas fa-check-double"></i> Evaluasi Model</a></li>
+            <li><a href="{{ url_for('about') }}" class="{% if request.endpoint == 'about' %}active{% endif %}"><i class="fas fa-info-circle"></i> Tentang Proyek</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="top-header gloss-card">
+            <h1>{{ title }}</h1>
+            <p>Sistem Peramalan Nilai Tukar Mata Uang Asing Menggunakan LSTM</p>
+        </div>
+        <div class="content-wrapper">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

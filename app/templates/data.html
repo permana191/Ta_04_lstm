@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="gloss-card">
+    <h3><i class="fas fa-table"></i> Eksplorasi Data Deret Waktu (EDA)</h3>
+    <p>Data Historis Nilai Tukar EURO Area terhadap USD sejak tahun 2000 - 2019 (Dataset Kaggle).</p>
+    <img src="{{ url_for('static', filename='images/eda_plot.png') }}" alt="EDA Plot" style="margin-bottom: 20px;" onerror="this.src='https://via.placeholder.com/800x400/1e293b/38bdf8?text=Grafik+EDA+Belum+Tersedia'">
+    
+    <h4>Statistik Dataset</h4>
+    <table>
+        <tr><th>Total Sekuens (Baris)</th><td>5.217 Hari Observasi</td></tr>
+        <tr><th>Fitur Digunakan</th><td>EURO AREA - EURO/US$</td></tr>
+        <tr><th>Pra-Pemrosesan</th><td>Interpolasi Linear & BFill (Penanganan Missing Values)</td></tr>
+        <tr><th>Skala Data (Scaling)</th><td>MinMaxScaler (0 - 1)</td></tr>
+    </table>
+</div>
+{% endblock %}
