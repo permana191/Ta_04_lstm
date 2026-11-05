@@ -1,5 +1,5 @@
 # TA-04: Prediksi Nilai Tukar Mata Uang Asing (Forex) Menggunakan LSTM
-Oleh: Sigit Miraj Permana (301240037 / 301240034)
+Oleh: Sigit Miraj Permana (301240037)
 Universitas Bale Bandung
 
 Proyek ini bertujuan untuk memprediksi fluktuasi nilai tukar mata uang (Forex) menggunakan arsitektur deep learning Long Short-Term Memory (LSTM), sebagai pemenuhan Tugas Akhir 04 (TA-04) Pembelajaran Mesin.
